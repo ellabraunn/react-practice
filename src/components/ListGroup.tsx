@@ -1,6 +1,6 @@
 function ListGroup() {
-  let items = ["Toronto", "London", "Paris", "New York"];
-  items = [];
+  const items = ["Toronto", "London", "Paris", "New York"];
+
   //  option 2: const message = items.length === 0 ? <p>No item found</p> : null;
   //  option 3: const getMessage = () => {
   //     return items.length === 0 ? <p>No item found</p> : null;
@@ -14,8 +14,14 @@ function ListGroup() {
       {items.length === 0 && <p>no item found</p>}
       {/* this is just saying if it's empty then do this, if condition is false result will just be false */}
       <ul className="list-group">
-        {items.map((item) => (
-          <li key={item}>{item}</li>
+        {items.map((item, index) => (
+          <li
+            className="list-group-item"
+            key={item}
+            onClick={(event) => console.log(event, index)}
+          >
+            {item}
+          </li>
         ))}
       </ul>
     </>
