@@ -1,3 +1,5 @@
+import type { MouseEvent } from "react";
+
 function ListGroup() {
   const items = ["Toronto", "London", "Paris", "New York"];
 
@@ -5,21 +7,15 @@ function ListGroup() {
   //  option 3: const getMessage = () => {
   //     return items.length === 0 ? <p>No item found</p> : null;
   //   };
+  // event handler
+  const handleClick = (event: MouseEvent) => console.log(event);
   return (
     <>
       <h1>List</h1>
-      {/*option 3: {getMessage()} */}
-      {/*option 2: {message} */}
-      {/*option 1: {items.length === 0 ? <p>No item found</p> : null} */}
       {items.length === 0 && <p>no item found</p>}
-      {/* this is just saying if it's empty then do this, if condition is false result will just be false */}
       <ul className="list-group">
-        {items.map((item, index) => (
-          <li
-            className="list-group-item"
-            key={item}
-            onClick={(event) => console.log(event, index)}
-          >
+        {items.map((item) => (
+          <li className="list-group-item" key={item} onClick={handleClick}>
             {item}
           </li>
         ))}
