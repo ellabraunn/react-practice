@@ -1,6 +1,7 @@
 interface Props {
   children: string;
-  color?: string;
+  color?: "primary" | "secondary" | "danger" | "success";
+  //can only set the color to these, so an error is thrown if one of these isn't set
   //? makes the prop optional so default val works
   onClick: () => void;
 }
