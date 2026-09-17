@@ -1,18 +1,21 @@
 import { useState } from "react";
 
-function ListGroup() {
-  const items = ["Toronto", "London", "Paris", "New York"];
-  //   this is a hook function which lets you tap into react functions
-  // this tells react that this component can have data or state that will change over time
-  const [selectedIndex, setSelectedIndex] = useState(-1);
+//say we want to change the list and heading based on info
+//will have {items: [], heading: string}
+//use interface which is from TS
+// use props to pass data into components
+interface Props {
+  items: string[];
+  heading: string;
+}
+// adding items and heading in with Props means you have access to them anywhere in this function
 
-  //  useState returns an array
-  //   arr[0]; //variable (selectedIndex)
-  //   arr[1]; // updater function, use to change variable
+function ListGroup({ items, heading }: Props) {
+  const [selectedIndex, setSelectedIndex] = useState(-1);
 
   return (
     <>
-      <h1>List</h1>
+      <h1>{heading}</h1>
       {items.length === 0 && <p>no item found</p>}
       <ul className="list-group">
         {items.map((item, index) => (
