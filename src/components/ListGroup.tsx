@@ -1,16 +1,10 @@
 import { useState } from "react";
 
-//say we want to change the list and heading based on info
-//will have {items: [], heading: string}
-//use interface which is from TS
-// use props to pass data into components
 interface Props {
   items: string[];
   heading: string;
-  //(item: string) => void, they type of onSelectItem is a function
   onSelectItem: (item: string) => void;
 }
-// adding items and heading in with Props means you have access to them anywhere in this function
 
 function ListGroup({ items, heading, onSelectItem }: Props) {
   const [selectedIndex, setSelectedIndex] = useState(-1);
