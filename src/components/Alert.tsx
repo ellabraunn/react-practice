@@ -1,7 +1,10 @@
 //now want to make dynamic so need to pass the text as a prop
+
+import type { ReactNode } from "react";
+
 //use an interface
 interface Props {
-  children: string;
+  children: ReactNode;
 }
 
 const Alert = ({ children }: Props) => {
