@@ -7,10 +7,12 @@ import { useState } from "react";
 interface Props {
   items: string[];
   heading: string;
+  //(item: string) => void, they type of onSelectItem is a function
+  onSelectItem: (item: string) => void;
 }
 // adding items and heading in with Props means you have access to them anywhere in this function
 
-function ListGroup({ items, heading }: Props) {
+function ListGroup({ items, heading, onSelectItem }: Props) {
   const [selectedIndex, setSelectedIndex] = useState(-1);
 
   return (
@@ -28,6 +30,7 @@ function ListGroup({ items, heading }: Props) {
             key={item}
             onClick={() => {
               setSelectedIndex(index);
+              onSelectItem(item);
             }}
           >
             {item}
